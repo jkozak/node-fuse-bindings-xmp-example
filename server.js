@@ -5,7 +5,7 @@ const      fuse = require('fuse-bindings');
 const      path = require('path');
 const     xattr = require('fs-xattr');
 const  diskfree = require('diskfree');
-const argparser = require('argparser');
+const argparser = require('argparse');
 
 function mount(basedir,mountpoint) {
     const basepath = (p)=>path.join(basedir,p);
@@ -183,7 +183,7 @@ function mount(basedir,mountpoint) {
 
 }
 
-const argparse = new (require('argparse').ArgumentParser)({
+const argparse = new argparser.ArgumentParser({
     addHelp:     true,
     description: require('./package.json').description
 });
@@ -195,7 +195,7 @@ argparse.addArgument(['basedir'],
                      });
 argparse.addArgument(['mountpoint'],
                      {
-                         action:       'store',
+                         action:       'store'
                      });
 
 const args = argparse.parseArgs();
