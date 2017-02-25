@@ -1,0 +1,42 @@
+{
+  "name": "node-fuse-bindings-xmp-example",
+  "version": "0.1.0",
+  "description": "specimen fuse overlay file system",
+  "main": "server.js",
+  "scripts": {
+    "eslint": "eslint -c test/eslint.conf -f compact --env node *.js",
+    "eslint:test": "eslint -c test/eslint.conf -f compact --env mocha test/*.js",
+    "pretest": "npm run eslint --silent && npm run eslint:test --silent",
+    "test:js": "cross-env NODE_ENV=test mocha -R mocha-tldr-reporter -C test/*.js",
+    "test": "npm run test:js --silent",
+    "test:XXX": "cross-env NODE_ENV=test mocha -R mocha-tldr-reporter -C test/*.js --grep XXX",
+    "test:sys": "cd test;./system-tests.sh",
+    "prepublish": "pandoc README.org -o README.md"
+  },
+  "author": "John Kozak <jk@thameslighter.net>",
+  "license": "ISC",
+  "dependencies": {
+    "diskfree": "^1.0.2",
+    "fs-xattr": "^0.1.15",
+    "fuse-bindings": "^2.10.1"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "cross-env": "^3.1.4",
+    "eslint": "^3.15.0",
+    "mocha": "^3.2.0",
+    "mocha-tldr-reporter": "^1.0.0",
+    "sinon": "^1.17.7",
+    "temp": "^0.8.3"
+  },
+  "bin": {
+    "puck": "./index.js"
+  },
+  "bugs": {
+    "url": "https://github.com/jkozak/node-fuse-bindings-xmp-example/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jkozak/node-fuse-bindings-xmp-example.git"
+  }
+}

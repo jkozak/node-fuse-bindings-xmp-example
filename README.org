@@ -1,0 +1,4 @@
+* node-fuse-bindings-xmp-example
+
+The canonical example FUSE filesystem: transparent remount of an
+existing directory location.
